@@ -4,7 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
-plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search)
+plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search pyenv ssh-agent)
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
@@ -70,3 +70,21 @@ export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
+sudo /etc/init.d/postgresql start
+export PATH="$HOME/.local/bin:$PATH"
+[[ -f "$HOME/.env.local" ]] && source "$HOME/.env.local"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/yannourt/.dart-cli-completion/zsh-config.zsh ]] && . /home/yannourt/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+alias bibividi-env='export HTTPS_PROXY=http://127.0.0.1:8443 && export NODE_EXTRA_CA_CERTS=~/.bibividi/ca.crt'
+export PATH="$HOME/.local/bin:$PATH"
+
+# bun completions
+[ -s "/home/yannourt/.bun/_bun" ] && source "/home/yannourt/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
